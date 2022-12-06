@@ -14,5 +14,7 @@ public interface IContratService {
     public ResponseEntity<Contrat> getContratById(Long id);
     public ResponseEntity<Map<String,Boolean>> deleteContrat(long id);
     public ResponseEntity<Contrat> updateContrat(long id,Contrat contrat);
+    public Contrat affectContratToEtudiant(Contrat contrat, String nomE,String prenomE);
 
-}
+
+    }

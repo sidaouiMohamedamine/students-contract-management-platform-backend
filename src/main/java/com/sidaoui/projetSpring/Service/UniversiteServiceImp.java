@@ -2,6 +2,7 @@ package com.sidaoui.projetSpring.Service;
 
 
 import com.sidaoui.projetSpring.Entity.Universite;
+import com.sidaoui.projetSpring.Repository.DepartementRepository;
 import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
 import com.sidaoui.projetSpring.Repository.UniversiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class UniversiteServiceImp implements IUniversite{
 
     @Autowired
     private UniversiteRepository universiteRepository;
+    @Autowired
+    private DepartementRepository departementRepository;
     @Override
     public Universite saveUniversite(Universite universite) {
         return universiteRepository.save(universite);
@@ -55,6 +58,17 @@ public class UniversiteServiceImp implements IUniversite{
         return ResponseEntity.ok(response);
     }
 
+    /*
+    public void assignUniversiteToDepartement(Long idUniversite,Long idDepartement){
+        Universite universite=universiteRepository.findById(idUniversite)
+                .orElseThrow(()->new NotFoundException("Not Found university"));
+        Departement departement=departementRepository.findById(idDepartement)
+                .orElseThrow(()->new NotFoundException("Not Found"));
+        universite.setDepartment((List<Departement>) departement);
+        universiteRepository.save(departement);
+
+    } */
 
 
-}
+      }
+

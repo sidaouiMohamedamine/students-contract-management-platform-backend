@@ -41,6 +41,11 @@ public class ContratRestController {
     public ResponseEntity<Map<String, Boolean>> deleteContrat(@PathVariable("id") Long id){
         return contratService.deleteContrat(id);
     }
+    /**********************AffecteContratToEtudiant**********************************************/
+    @PutMapping("/affectContratToEtudiant/{nomE}/{prenomE}")
+    public Contrat affectContratToEtudiant(@RequestBody Contrat contrat,@PathVariable("nomE") String nomE,@PathVariable("prenomE") String prenomE){
+        return  contratService.affectContratToEtudiant(contrat,nomE,prenomE);
+    }
 
 
 

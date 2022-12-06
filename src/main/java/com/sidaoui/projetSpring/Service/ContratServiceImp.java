@@ -2,6 +2,8 @@ package com.sidaoui.projetSpring.Service;
 
 
 import com.sidaoui.projetSpring.Entity.Contrat;
+import com.sidaoui.projetSpring.Entity.Etudiant;
+import com.sidaoui.projetSpring.Repository.EtudiantRepository;
 import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
 import com.sidaoui.projetSpring.Repository.ContratRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import java.util.Map;
 public class ContratServiceImp implements IContratService{
     @Autowired
     private ContratRepository contratRepository;
+    @Autowired
+    private EtudiantRepository etudiantRepository;
 
     /****************************Method to save new contrat*****************/
     @Override
@@ -57,6 +61,18 @@ public class ContratServiceImp implements IContratService{
         newContrat.setEtudiant(contrat.getEtudiant());
         Contrat updatedContrat =contratRepository.save(newContrat);
         return ResponseEntity.ok(updatedContrat);
+    }
+    /***********************Affecter Contrat to Etudiant*****************************/
+    @Override
+    public Contrat affectContratToEtudiant(Contrat contrat, String nomE,String prenomE){
+        Contrat newContrat = contratRepository.findById(2L).orElseThrow(()->new NotFoundException("Not Found"));
+        Etudiant etudiant = etudiantRepository.findEtudiantByNomEAndPrenomE(nomE,prenomE);
+        boolean b = etudiant.getContrat().size() <= 5;
+        {
+            contrat.setEtudiant(etudiant);
+            contratRepository.save(contrat);
+        }
+        return contrat;
     }
 
 

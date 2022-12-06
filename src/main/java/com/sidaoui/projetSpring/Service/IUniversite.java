@@ -14,4 +14,5 @@ public interface IUniversite {
         public ResponseEntity<Universite>getUniversiteById(Long id);
         public ResponseEntity<Universite>updateUniversite(Long id ,Universite universite);
         public ResponseEntity<Map<String,Boolean>> deleteUniversite(Long id);
+        //public void assignUniversiteToDepartement(Long idUniversite, Long idDepartement);
 }

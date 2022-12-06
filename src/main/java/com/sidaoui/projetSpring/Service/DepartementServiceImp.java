@@ -2,8 +2,10 @@ package com.sidaoui.projetSpring.Service;
 
 
 import com.sidaoui.projetSpring.Entity.Departement;
+import com.sidaoui.projetSpring.Entity.Universite;
 import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
 import com.sidaoui.projetSpring.Repository.DepartementRepository;
+import com.sidaoui.projetSpring.Repository.UniversiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class DepartementServiceImp implements IDepartementService {
 
     @Autowired
     private DepartementRepository departementRepository;
+    @Autowired
+    private UniversiteRepository universiteRepository;
 
     @Override
     public Departement saveDepartement(Departement departement) {
@@ -53,6 +57,12 @@ public class DepartementServiceImp implements IDepartementService {
         Map<String,Boolean> response=new HashMap<>();
         response.put("deleted",Boolean.TRUE);
         return ResponseEntity.ok(response);
+    }
+
+    @Override
+    public List<Departement> retrieveDepartementsByUniversite(long idUniversite) {
+        Universite universite = universiteRepository.findById(idUniversite).orElse(null);
+        return universite.getDepartment();
     }
 
 }

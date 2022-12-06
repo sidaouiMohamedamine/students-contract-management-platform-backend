@@ -13,4 +13,6 @@ public interface IDepartementService {
     public ResponseEntity<Departement> getDepartementById(Long id);
     public ResponseEntity<Departement> updateDepartement(Long id, Departement departement);
     public ResponseEntity<Map<String,Boolean>> deleteDepartement(Long id);
+    List<Departement> retrieveDepartementsByUniversite(long idUniversite);
+
 }

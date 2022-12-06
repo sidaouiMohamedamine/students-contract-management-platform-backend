@@ -37,7 +37,12 @@ public class DepartementRestController {
     public ResponseEntity<Map<String,Boolean>>deleteDepartement(@PathVariable("id") Long id){
         return departementService.deleteDepartement(id);
     }
+    public List<Departement> retrieveDepartementsByUniversite(long idUniversite) {
+
+        return departementService.retrieveDepartementsByUniversite(idUniversite);
+    }
 
 
 
-}
+
+    }

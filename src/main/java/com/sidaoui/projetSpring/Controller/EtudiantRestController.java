@@ -43,7 +43,14 @@ public class EtudiantRestController {
     public ResponseEntity<Map<String,Boolean>>deleteEtudiant(@PathVariable("id")Long id){
         return etudiantService.deleteEtudiant(id);
     }
+    @PutMapping("/assignEtudiantToDepartment/{idEtudiant}/{idDepartment}")
+    public void assignEtudiantToDepartment(@PathVariable("idEtudiant")long idEtudiant,@PathVariable("idDepartement") long idDepartment){
+        assignEtudiantToDepartment(idEtudiant,idDepartment);
+    }
+    @PutMapping("/addAndAssignEtudiantToEquipeAndContract/{idContrat}/{idEquipe}")
+    public Etudiant addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e,@PathVariable("idContrat") long idContract,@PathVariable("idEquipe") long idEquipe) {
+        return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContract,idEquipe);
+    }
 
 
-
-}
+    }
