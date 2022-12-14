@@ -1,4 +1,4 @@
-package com.sidaoui.projetSpring.Repository.Exception;
+package com.sidaoui.projetSpring.Exception;
 
 
 import org.springframework.http.HttpStatus;

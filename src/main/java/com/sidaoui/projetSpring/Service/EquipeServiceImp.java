@@ -3,9 +3,10 @@ package com.sidaoui.projetSpring.Service;
 
 import com.sidaoui.projetSpring.Entity.Equipe;
 import com.sidaoui.projetSpring.Repository.EquipeRepository;
-import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
+import com.sidaoui.projetSpring.Exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -22,7 +23,8 @@ public class EquipeServiceImp implements IEquipe {
     public Equipe saveEquipe(Equipe equipe) {
         return equipeRepository.save(equipe);
     }
-
+    //the scheduler service allows to display the list of students every 3 second
+    @Scheduled(fixedRate = 3000)
     @Override
     public List<Equipe> getAllEquipe() {
         return equipeRepository.findAll();

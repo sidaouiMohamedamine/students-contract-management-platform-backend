@@ -51,6 +51,10 @@ public class EtudiantRestController {
     public Etudiant addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e,@PathVariable("idContrat") long idContract,@PathVariable("idEquipe") long idEquipe) {
         return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContract,idEquipe);
     }
+    @GetMapping("/getEtudiantByNom/{nom}")
+    public List<Etudiant> getEtudiantByNom(@PathVariable("nom") String nom){
+        return etudiantService.getEtudiantByNom(nom);
+    }
 
 
     }

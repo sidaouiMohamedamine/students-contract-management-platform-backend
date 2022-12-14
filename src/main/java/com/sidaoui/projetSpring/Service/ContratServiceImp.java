@@ -4,10 +4,11 @@ package com.sidaoui.projetSpring.Service;
 import com.sidaoui.projetSpring.Entity.Contrat;
 import com.sidaoui.projetSpring.Entity.Etudiant;
 import com.sidaoui.projetSpring.Repository.EtudiantRepository;
-import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
+import com.sidaoui.projetSpring.Exception.NotFoundException;
 import com.sidaoui.projetSpring.Repository.ContratRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -27,6 +28,8 @@ public class ContratServiceImp implements IContratService{
         return contratRepository.save(contrat);
     }
     /**************************Method to get all contract********************/
+    //the scheduler service allows to display the list of contracts every 15th second
+    @Scheduled(cron="*/15 * * * * * ")
     @Override
     public List<Contrat> getAllContrat() {
         return contratRepository.findAll();

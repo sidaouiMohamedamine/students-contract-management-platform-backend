@@ -9,9 +9,10 @@ import com.sidaoui.projetSpring.Repository.ContratRepository;
 import com.sidaoui.projetSpring.Repository.DepartementRepository;
 import com.sidaoui.projetSpring.Repository.EquipeRepository;
 import com.sidaoui.projetSpring.Repository.EtudiantRepository;
-import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
+import com.sidaoui.projetSpring.Exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -34,7 +35,8 @@ public class EtudiantServiceImp implements IEtudiantService{
     public Etudiant saveEtudiant(Etudiant e) {
        return this.etudiantRepository.save(e);
     }
-
+    //the scheduling service allows to display the list of students every 15th second of a minute
+    @Scheduled(cron="15 * * * * * ")
     @Override
     public List<Etudiant> getEtudiant() {
         return this.etudiantRepository.findAll();
@@ -45,6 +47,12 @@ public class EtudiantServiceImp implements IEtudiantService{
         Etudiant etudiant=etudiantRepository.findById(id)
                 .orElseThrow(()->new NotFoundException("Etudiant Not Found"));
         return ResponseEntity.ok(etudiant);
+    }
+
+    @Override
+    public List<Etudiant> getEtudiantByNom(String nom) {
+        List<Etudiant> etudiant=etudiantRepository.findEtudiantByNomE(nom);
+        return etudiant;
     }
 
     @Override

@@ -11,6 +11,7 @@ public interface IEtudiantService {
     public Etudiant saveEtudiant(Etudiant e);
     public List<Etudiant> getEtudiant();
     public ResponseEntity<Etudiant> getEtudiantById(Long id);
+    public List<Etudiant> getEtudiantByNom(String nomE);
     public ResponseEntity<Etudiant> updateEtudiant(Long id, Etudiant etudiant);
     public ResponseEntity<Map<String,Boolean>> deleteEtudiant(Long id);
     public void assignEtudiantToDepartment(long idEtudiant, long idDepartment);

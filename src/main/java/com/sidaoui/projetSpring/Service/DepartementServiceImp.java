@@ -3,7 +3,7 @@ package com.sidaoui.projetSpring.Service;
 
 import com.sidaoui.projetSpring.Entity.Departement;
 import com.sidaoui.projetSpring.Entity.Universite;
-import com.sidaoui.projetSpring.Repository.Exception.NotFoundException;
+import com.sidaoui.projetSpring.Exception.NotFoundException;
 import com.sidaoui.projetSpring.Repository.DepartementRepository;
 import com.sidaoui.projetSpring.Repository.UniversiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

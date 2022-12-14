@@ -28,4 +28,7 @@ public class Etudiant implements Serializable {
     private Departement departement;
     @ManyToMany
     private List<Equipe>equipe;
+
+
+
 }
