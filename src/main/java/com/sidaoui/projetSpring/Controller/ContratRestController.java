@@ -3,6 +3,7 @@ package com.sidaoui.projetSpring.Controller;
 
 import com.sidaoui.projetSpring.Entity.Contrat;
 import com.sidaoui.projetSpring.Service.IContratService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/apiContrat")
+@Api(tags = "Contract Management")
 public class ContratRestController {
     @Autowired
     private IContratService contratService;

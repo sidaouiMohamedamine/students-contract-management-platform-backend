@@ -10,6 +10,7 @@ import com.sidaoui.projetSpring.Repository.DepartementRepository;
 import com.sidaoui.projetSpring.Repository.EquipeRepository;
 import com.sidaoui.projetSpring.Repository.EtudiantRepository;
 import com.sidaoui.projetSpring.Exception.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class EtudiantServiceImp implements IEtudiantService{
     @Autowired
     private EtudiantRepository etudiantRepository;
@@ -91,12 +93,6 @@ public class EtudiantServiceImp implements IEtudiantService{
         return etudiantRepository.save(e);
 
     }
-
-    @Override
-    public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
-        return null;
-    }
-
     /**************************Assign un etudiant to departement***************/
     @Override
     public void assignEtudiantToDepartment(long idEtudiant, long idDepartment) {
@@ -111,7 +107,6 @@ public class EtudiantServiceImp implements IEtudiantService{
         Departement departement = departementRepository.findById(idDepartement).orElse(null);
         List<Etudiant> etudiants = departement.getEtudiant();
         return etudiants;
-
     }
 
 

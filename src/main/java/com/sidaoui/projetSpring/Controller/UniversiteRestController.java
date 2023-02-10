@@ -3,6 +3,7 @@ package com.sidaoui.projetSpring.Controller;
 
 import com.sidaoui.projetSpring.Entity.Universite;
 import com.sidaoui.projetSpring.Service.IUniversite;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/apiUniversite")
+@Api(tags = "University Management")
 public class UniversiteRestController {
 
     @Autowired

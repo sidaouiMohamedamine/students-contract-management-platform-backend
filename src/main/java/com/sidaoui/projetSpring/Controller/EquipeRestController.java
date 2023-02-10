@@ -3,6 +3,7 @@ package com.sidaoui.projetSpring.Controller;
 
 import com.sidaoui.projetSpring.Entity.Equipe;
 import com.sidaoui.projetSpring.Service.IEquipe;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/apiEquipe")
+@Api(tags = "Squade Management")
 public class EquipeRestController {
 
         @Autowired
