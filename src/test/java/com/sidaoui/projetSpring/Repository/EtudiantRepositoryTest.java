@@ -86,9 +86,9 @@ public class EtudiantRepositoryTest {
                     .build();
             Etudiant etudiant4 = Etudiant
                     .builder()
-                    .idEtudiant(1L)
+                    .idEtudiant(2L)
                     .nomE("Sidaoui")
-                    .prenomE("Said")
+                    .prenomE("amine")
                     .build();
                 etudiantRepository.save(etudiant3);
                 etudiantRepository.save(etudiant4);
