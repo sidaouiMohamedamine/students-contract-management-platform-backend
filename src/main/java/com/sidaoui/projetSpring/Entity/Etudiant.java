@@ -7,14 +7,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
 @Table(name="Etudiant")
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@NoArgsConstructor
 @Builder
+@Entity
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,13 +21,20 @@ public class Etudiant implements Serializable {
     private String prenomE;
     @Enumerated(EnumType.STRING)
     private Option option;
-    @OneToMany(mappedBy = "etudiant",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contrat> contrat;
     @ManyToOne
     private Departement departement;
     @ManyToMany
-    private List<Equipe>equipe;
+    private List<Equipe> equipe;
 
+    public Etudiant(Long idEtudiant, String nomE, String prenomE) {
+        this.idEtudiant = idEtudiant;
+        this.nomE = nomE;
+        this.prenomE = prenomE;
+    }
 
 
 }
+
+

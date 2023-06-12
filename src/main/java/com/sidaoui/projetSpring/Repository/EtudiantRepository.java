@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 
-    Etudiant findEtudiantByNomE(String nomE);
+    public Etudiant findEtudiantByNomE(String nomE);
     @Query("SELECT e FROM Etudiant e WHERE e.nomE=?1 and e.prenomE=?2")
     Etudiant findEtudiantByNomEAndPrenomE(String nomE,String prenomE);
 }

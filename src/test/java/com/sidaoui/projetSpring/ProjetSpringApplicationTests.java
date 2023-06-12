@@ -8,6 +8,7 @@ class ProjetSpringApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("Test passed succefully");
 	}
 
 }
