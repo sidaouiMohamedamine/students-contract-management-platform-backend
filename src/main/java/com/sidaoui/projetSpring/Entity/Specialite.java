@@ -8,5 +8,6 @@ public enum Specialite {
     IA,
     RESEAUX,
     CLOUD,
-    SECURITY
+    SECURITY,
+    SEA
 }

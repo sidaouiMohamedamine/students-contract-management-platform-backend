@@ -63,7 +63,7 @@ public class EtudiantRestController {
     }
     @GetMapping("/getEtudiantByNom/{nom}")
     @ApiOperation(value = "getStudentByName")
-    public List<Etudiant> getEtudiantByNom(@PathVariable("nom") String nom){
+    public Etudiant getEtudiantByNom(@PathVariable("nom") String nom){
         return etudiantService.getEtudiantByNom(nom);
     }
 

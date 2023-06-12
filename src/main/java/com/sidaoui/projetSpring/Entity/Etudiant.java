@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

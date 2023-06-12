@@ -52,8 +52,8 @@ public class EtudiantServiceImp implements IEtudiantService{
     }
 
     @Override
-    public List<Etudiant> getEtudiantByNom(String nom) {
-        List<Etudiant> etudiant=etudiantRepository.findEtudiantByNomE(nom);
+    public Etudiant getEtudiantByNom(String nom) {
+        Etudiant etudiant=etudiantRepository.findEtudiantByNomE(nom);
         return etudiant;
     }
 
