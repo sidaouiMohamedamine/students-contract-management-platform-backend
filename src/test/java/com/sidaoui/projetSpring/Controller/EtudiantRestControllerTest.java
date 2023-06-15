@@ -113,13 +113,6 @@ class EtudiantRestControllerTest {
 
         Long idE =1L;
 
-        Etudiant etudiant = Etudiant
-                .builder()
-                .idEtudiant(idE)
-                .nomE("Sidaoui")
-                .prenomE("Mohamed Amine")
-                .build();
-
 
         when(etudiantService.getEtudiantById(idE)).thenReturn( ResponseEntity.ok(etudiant));
 
@@ -137,12 +130,7 @@ class EtudiantRestControllerTest {
     public void updateEtudiant() throws  Exception {
         Long idE =1L;
 
-        Etudiant etudiant = Etudiant
-                .builder()
-                .idEtudiant(idE)
-                .nomE("Sidaoui")
-                .prenomE("Mohamed Amine")
-                .build();
+
         when(etudiantService.updateEtudiant(idE,etudiant)).thenReturn(ResponseEntity.ok(etudiant));
 
         ResultActions response = mockMvc.perform(put("/apiEtudiant/updateEtudiant/{idE}",idE)
@@ -155,12 +143,7 @@ class EtudiantRestControllerTest {
     public void deleteEtudiant() throws Exception{
         Long idE =1L;
 
-        Etudiant etudiant = Etudiant
-                .builder()
-                .idEtudiant(idE)
-                .nomE("Sidaoui")
-                .prenomE("Mohamed Amine")
-                .build();
+
        Map<String, Boolean> responseMap = new HashMap<>();
         responseMap.put("deleted", true);
        when(etudiantService.deleteEtudiant(idE)).thenReturn(ResponseEntity.ok(responseMap));
