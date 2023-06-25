@@ -1,0 +1,27 @@
+services:
+  postgres:
+    container_name: postgres-sql
+    image: postgres
+    environment:
+       POSTGRES_USER: postgres
+       POSTGRES_PASSWORD: password
+       POSTGRES_DB: springdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgres/data
+    networks:
+      - spring-boot-network
+  spring-boot-app:
+    container_name: spring-boot
+    image: springbootapp
+    ports:
+      - "8088:8080"
+    networks:
+      - spring-boot-network
+volumes:
+  postgres:
+
+networks:
+   spring-boot-network:
+    driver: bridge
